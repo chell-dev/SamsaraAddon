@@ -8,7 +8,7 @@ group = "me.chell"
 version = "1.0"
 
 dependencies {
-    implementation(files("samsara.jar"))
+    implementation(files(property("samsara_jar")))
 
     minecraft("com.mojang:minecraft:${property("minecraft_version")}")
     mappings("net.fabricmc:yarn:${property("yarn_mappings")}:v2")
