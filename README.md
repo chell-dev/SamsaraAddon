@@ -1,11 +1,8 @@
 # Usage
 1. Clone this repository or download zip
-2. Download the latest Samsara release
-3. Rename it to samsara.jar
-4. Put the file in your project folder
-5. You need a class that extends Addon
-6. The load() and unload() methods are called when the client is loaded and unloaded
-7. Now you can do anything you want except add mixins and resources
+2. Change samsara_version in gradle.properties to the version or commit you want (see [jitpack](https://jitpack.io/#chell-dev/Samsara))
+3. Create a class that extends Addon
+4. The load() and unload() methods are called when the client is loaded and unloaded
 
 ## Modules
 1. Create a class that extends Module
@@ -15,7 +12,7 @@
 ### Values
 ```
 @Register(0) val aValue = Value("Name", true)
-@Register(1) val anotherValue = ValueBuilder("DifferentName", 1.0).bounds(0.0, 2.0).build()
+@Register(1) val anotherValue = Value("DifferentName", 1.0, min = 0.0, max = 5.0)
 ```
 
 ## Events

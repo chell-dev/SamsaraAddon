@@ -7,8 +7,14 @@ plugins {
 group = "me.chell"
 version = "1.0"
 
+repositories {
+    maven {
+        url = uri("https://jitpack.io")
+    }
+}
+
 dependencies {
-    implementation(files(property("samsara_jar")))
+    implementation("com.github.chell-dev:Samsara:${property("samsara_version")}")
 
     minecraft("com.mojang:minecraft:${property("minecraft_version")}")
     mappings("net.fabricmc:yarn:${property("yarn_mappings")}:v2")
