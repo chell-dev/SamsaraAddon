@@ -1,21 +1,25 @@
 package me.chell.example
 
+import me.chell.samsara.api.Loadable
 import me.chell.samsara.api.addon.Addon
 import me.chell.samsara.api.feature.FeatureManager
 import me.chell.samsara.api.util.Globals
 
 class ExampleAddon: Addon(), Globals {
 
-    private val module: ExampleModule = ExampleModule()
+    private val features = mutableListOf<Loadable>()
 
     override fun load() {
-        LOG.info("Example Addon loaded.")
+        FeatureManager.modules.add(ExampleModule().also { features.add(it) })
+        FeatureManager.widgets.add(ExampleWidget().also { features.add(it) })
 
-        FeatureManager.modules.add(module)
-        module.load()
+        for(f in features) f.load()
+
+        LOG.info("Example Addon loaded.")
     }
 
     override fun unload() {
-        module.unload()
+        for(f in features) f.load()
+        features.clear()
     }
 }
