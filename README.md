@@ -1,13 +1,13 @@
 # Usage
 1. Clone this repository or download zip
-2. Change samsara_version in gradle.properties to the version or commit you want (see [jitpack](https://jitpack.io/#chell-dev/Samsara))
-3. Create a class that extends Addon
+2. Change apiVersion in gradle.properties to the version or commit you want (see [jitpack](https://jitpack.io/#chell-dev/Samsara))
+3. Rename anything named "example"
 4. The load() and unload() methods are called when the client is loaded and unloaded
+5. To use the addon, put it in `.minecraft/mods/` alongside Samsara
 
-## Modules
+## Features
 1. Create a class that extends Module
-2. Make sure you don't use the empty constructor
-3. Use ModuleManager.modules.add(ModuleClass()) to register it
+2. Use `FeatureManager.(modules / widgets).add(FeatureClass())` to register it
 
 ### Values
 ```
@@ -24,4 +24,4 @@ fun onEvent(event: ExampleEvent) {
 ```
 Make sure to call EventHandler.register(ClassWithEventHandler())
 
-Modules are automatically registered and unregistered in onEnable() and onDisable()
+Modules and Widgets are automatically registered and unregistered in onEnable() and onDisable()
